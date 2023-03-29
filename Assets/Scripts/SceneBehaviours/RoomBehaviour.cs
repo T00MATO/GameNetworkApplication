@@ -47,15 +47,15 @@ public class RoomBehaviour : SceneBehaviour
         Debug.Log("Room exited.");
 
         EndPacketReceive();
-
-        SceneManager.LoadScene(Consts.SCENE_LOBBY);
+        
+        ExtendedManager.LoadScene(SceneKey.LOBBY);
     }
 
     private void OnRoomInfo(GNP_RoomInfo p)
     {
         var yourName = string.Empty;
         var opponentName = string.Empty;
-        for (var idx = 0; idx < Consts.MAX_USER; idx++)
+        for (var idx = 0; idx < GameSetting.MAX_USERS; idx++)
         {
             if (p.Uids[idx] == Oneself.Uid)
                 yourName = p.Usernames[idx];

@@ -11,7 +11,6 @@ public class LoginBehaviour : SceneBehaviour
 
     [SerializeField]
     private TMP_InputField _usernameField;
-
     [SerializeField]
     private Button _loginButton;
 
@@ -22,7 +21,7 @@ public class LoginBehaviour : SceneBehaviour
 
     private void Start()
     {
-        ConnectToServer(Config.SERVER_IP, Config.SERVER_PORT);
+        ConnectToServer(ServerSetting.REMOTE_IP, ServerSetting.REMOTE_PORT);
     }
 
     public override void OnPacketReceived(GNPacket packet)
@@ -68,7 +67,7 @@ public class LoginBehaviour : SceneBehaviour
 
             EndPacketReceive();
 
-            SceneManager.LoadScene(Consts.SCENE_LOBBY);
+            ExtendedManager.LoadScene(SceneKey.LOBBY);
 
             Debug.Log("Successfully logined.");
         });

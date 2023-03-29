@@ -11,7 +11,6 @@ public class LobbyBehaviour : SceneBehaviour
 
     [SerializeField]
     private Button _matchButton;
-
     [SerializeField]
     private TMP_Text _matchButtonText;
 
@@ -22,7 +21,7 @@ public class LobbyBehaviour : SceneBehaviour
 
     private void Awake()
     {
-        _matchButtonText.text = Consts.TEXT_MATCH_START;
+        _matchButtonText.text = TextSetting.GetText(TextKey.MATCH_START);
 
         BeginPacketReceive();
     }
@@ -64,19 +63,19 @@ public class LobbyBehaviour : SceneBehaviour
         {
             case GNP_MatchRes.RESULTS.START:
                 _matchButton.interactable = true;
-                _matchButtonText.text = Consts.TEXT_MATCH_WAITING;
+                _matchButtonText.text = TextSetting.GetText(TextKey.MATCH_WAITING);
 
                 Debug.Log("Match making is started.");
                 break;
             case GNP_MatchRes.RESULTS.CANCEL:
                 _matchButton.interactable = true;
-                _matchButtonText.text = Consts.TEXT_MATCH_START;
+                _matchButtonText.text = TextSetting.GetText(TextKey.MATCH_START);
 
                 Debug.Log("Match making is canceled.");
                 break;
             case GNP_MatchRes.RESULTS.SUCCESS:
                 _matchButton.interactable = false;
-                _matchButtonText.text = Consts.TEXT_MATCH_SUCCEED;
+                _matchButtonText.text = TextSetting.GetText(TextKey.MATCH_SUCCEED);
 
                 Debug.Log("Match making is succeed.");
                 break;
@@ -90,6 +89,6 @@ public class LobbyBehaviour : SceneBehaviour
     {
         EndPacketReceive();
 
-        SceneManager.LoadScene(Consts.SCENE_ROOM);
+        ExtendedManager.LoadScene(SceneKey.ROOM);
     }
 }
