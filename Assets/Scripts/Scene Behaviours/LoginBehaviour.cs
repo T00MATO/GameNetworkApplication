@@ -15,14 +15,6 @@ public class LoginBehaviour : SceneBehaviour
     [SerializeField]
     private Button _loginButton;
 
-    [Header("Server End Point")]
-
-    [SerializeField]
-    private string _serverIp;
-
-    [SerializeField]
-    private ushort _serverPort;
-
     private void Awake()
     {
         BeginPacketReceive();
@@ -30,7 +22,7 @@ public class LoginBehaviour : SceneBehaviour
 
     private void Start()
     {
-        ConnectToServer(_serverIp, _serverPort);
+        ConnectToServer(Config.ServerIp, Config.ServerPort);
     }
 
     public override void OnPacketReceived(GNPacket packet)
