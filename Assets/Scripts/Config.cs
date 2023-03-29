@@ -50,8 +50,8 @@ public class Config : ScriptableObject
     [SerializeField]
     private ushort _serverPort;
     
-    public static string ServerIp { get => Instance._serverIp; }
-    public static ushort ServerPort { get => Instance._serverPort; }
+    public static string SERVER_IP { get => Instance._serverIp; }
+    public static ushort SERVER_PORT { get => Instance._serverPort; }
 
 #if UNITY_EDITOR
     [MenuItem("Config/Edit")]

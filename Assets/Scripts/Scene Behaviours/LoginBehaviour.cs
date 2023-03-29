@@ -22,7 +22,7 @@ public class LoginBehaviour : SceneBehaviour
 
     private void Start()
     {
-        ConnectToServer(Config.ServerIp, Config.ServerPort);
+        ConnectToServer(Config.SERVER_IP, Config.SERVER_PORT);
     }
 
     public override void OnPacketReceived(GNPacket packet)
