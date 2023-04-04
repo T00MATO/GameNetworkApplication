@@ -2,10 +2,9 @@ using GNClientLib;
 using GNPacketLib;
 using TMPro;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
-public class LoginBehaviour : SceneBehaviour
+public class LoginBehaviour : NetworkBehaviour
 {
     [Header("External References")]
 

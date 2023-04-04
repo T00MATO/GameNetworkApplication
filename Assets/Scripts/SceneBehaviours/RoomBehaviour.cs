@@ -1,9 +1,8 @@
 ﻿using GNClientLib;
 using GNPacketLib;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
-public class RoomBehaviour : SceneBehaviour
+public class RoomBehaviour : NetworkBehaviour
 {
     private void Awake()
     {

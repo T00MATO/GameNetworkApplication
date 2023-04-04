@@ -2,10 +2,9 @@
 using GNPacketLib;
 using TMPro;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
-public class LobbyBehaviour : SceneBehaviour
+public class LobbyBehaviour : NetworkBehaviour
 {
     [Header("External References")]
 
@@ -46,7 +45,7 @@ public class LobbyBehaviour : SceneBehaviour
     {
         _matchButton.interactable = false;
 
-        var request = GNP_Match.REQUESTS.NONE;
+        GNP_Match.REQUESTS request;
         if (_recentMatchResult == GNP_MatchRes.RESULTS.START)
             request = GNP_Match.REQUESTS.CANCEL;
         else
